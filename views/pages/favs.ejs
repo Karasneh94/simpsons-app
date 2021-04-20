@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../layouts/head.ejs'); %>
+</head>
+
+<body>
+    <header>
+
+        <%- include('../layouts/header.ejs'); %>
+    </header>
+
+
+
+
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            height: 100%;
+        }
+
+        #left {
+
+            order: 1;
+            height: 100%;
+        }
+
+        #right {
+
+            order: 2;
+            height: 100%;
+        }
+    </style>
+<!-- fav(
+    id SERIAL PRIMARY KEY NOT NULL,
+    simCharacter VARCHAR(256) NOT NULL,
+    quote TEXT NOT NULL,
+    simImage VARCHAR(1000) NOT NULL,
+    direction VARCHAR(256) NOT NULL
+  ); -->
+
+
+    <main>
+
+        <div id="left">
+            <% data.forEach(function(value) { if(value.dir==left){ %>
+
+                <div class="char">
+                    <img src="<%= value.simImage %>" alt="">
+                    <h1><%= value.simCharacter %></h1>
+                    <p><%= value.quote %></p>
+
+                </div>
+
+
+                <% } %>
+                    <% }) %>
+        </div>
+
+        <div id="right">
+            <% data.forEach(function(value) { if(value.dir==right){ %>
+
+                <div class="char">
+                    <img src="<%= value.simImage %>" alt="">
+                    <h1><%= value.simCharacter %></h1>
+                    <p><%= value.quote %></p>
+
+                </div>
+
+
+                <% } %>
+                    <% }) %>
+
+        </div>
+
+
+
+
+
+    </main>
+
+    <footer>
+
+        <%- include('../layouts/footer.ejs'); %>
+    </footer>
+
+</body>
+
+</html>

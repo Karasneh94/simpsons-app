@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../layouts/head.ejs'); %>
+</head>
+<body>
+    <header>
+        <%- include('../layouts/header.ejs'); %>
+    </header>
+
+<style>
+    main{
+        background-color: #62C8E4;
+    }
+#main-div{
+
+    display: grid;
+    grid-template-rows: 30% 30% 30% 10%;
+    
+}
+.char-colom{
+
+    order: 1;
+display: grid;
+grid-template-columns: 33% 33% 33%;
+}
+.char{
+    order: 1;
+}
+
+input{
+    display: none;
+}
+
+
+</style>
+
+
+    <main>
+        <div id="main-div">
+        <% data.forEach(function(value) { %>
+
+<form action="/fav" method="post">
+    <label><%= value.character %></label>
+    <input type="text" value="<%= value.character %>" name="char">
+    <label><%= value.quote %></label>
+    <input type="text" value="<%= value.quote %>" name="quote">
+    <img src="<%= value.image %>" alt="">
+    <input type="text" value="<%= value.image %>" name="image">
+    <input type="text" value="<%= value.characterDirection %>" name="dir">
+    <button type="submit">Favor character</button>
+</form>
+
+
+
+          
+    </div>
+            <% }) %>
+
+    </main>
+
+    <footer>
+        <%- include('../layouts/footer.ejs'); %>
+    </footer>
+</body>
+</html>
